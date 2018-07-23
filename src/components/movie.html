@@ -1,0 +1,20 @@
+<template>
+  <require from="./movie.css"></require>
+
+  <div class="card">
+
+    <div class="movie-card ${isHovering ? 'active' : ''}" mouseover.delegate="mouseOver()" mouseout.delegate="mouseOut()">
+      <img src="${model.poster_path}" alt="" class="card-img-top">
+      <div class="movie-info">
+        <p>${model.overview}</p>
+      </div>
+    </div>
+
+  <div class="card-body">
+      <h5 class="card-title">${model.title}</h5>
+      <p>Avg. rating: ${model.vote_average}</p>
+      <a if.bind="!isInWatchlist && isAuthenticated" click.trigger="addMovie(model)" href="#" class="btn btn-success">Add</a>
+      <a if.bind="isInWatchlist && isAuthenticated" click.trigger="removeMovie(model)" href="#" class="btn btn-outline-success">Remove</a>
+    </div>
+  </div>
+</template>
