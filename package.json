@@ -110,7 +110,8 @@
   },
   "scripts": {
     "start": "nps",
-    "test": "nps test"
+    "test": "nps test",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install  && au build"
   },
   "main": "dist/app.bundle.js"
 }
